@@ -161,6 +161,15 @@ with connection_pool.session_context('root', 'nebula') as session:
             # 创建索引
             print("创建索引...")
             session.execute('CREATE TAG INDEX IF NOT EXISTS i_paper ON paper()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_album ON album()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_author ON author()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_classification_number ON classification_number()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_fund ON fund()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_key_word ON key_word()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_organization ON organization()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_sensitive_entity ON sensitive_entity()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_topic ON topic()')
+            session.execute('CREATE TAG INDEX IF NOT EXISTS i_journal ON journal()')
             print("等待索引构建完成...")
             time.sleep(20)  # 等待索引构建完成
             
